@@ -12,8 +12,8 @@ from utils import predict_average_match
 app = FastAPI()
 
 # Load the model and dataset
-rf_model = joblib.load("../models/rf_model.pkl")
-df = pd.read_csv("../datasets/vct_average.csv")
+rf_model = joblib.load("models/rf_model.pkl")
+df = pd.read_csv("datasets/vct_average.csv")
 df = df.drop(columns=["Unnamed: 0"])
 
 
@@ -33,7 +33,7 @@ def predict_match(request: MatchRequest):
         raise HTTPException(status_code=400, detail=str(e))
 
 
-@app.get("/predict")
+@app.get("/get_predict")
 def predict_match(teamA: str = Query(...), teamB: str = Query(...)):
     try:
         result = predict_average_match(teamA, teamB, df, rf_model)
