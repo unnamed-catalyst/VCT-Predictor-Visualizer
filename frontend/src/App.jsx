@@ -38,7 +38,7 @@ function App() {
     }
 
     const [teamA, teamB] = selected.map((t) => t.code);
-    const url = `http://127.0.0.1:8000/get_predict?teamA=${teamA}&teamB=${teamB}`;
+    const url = `https://vct-predictor-visualizer.onrender.com/get_predict?teamA=${teamA}&teamB=${teamB}`;
 
     try {
       const res = await fetch(url);

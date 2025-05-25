@@ -20,7 +20,7 @@ const TeamTile = ({ code, region, color, provided }) => {
       }}
     >
       <img
-        src={`/logos/${region}/${code}.png`}
+        src={`${import.meta.env.BASE_URL}logos/${region}/${code}.png`}
         alt={code}
         style={{ width: 30, height: 30, objectFit: "contain" }}
       />
