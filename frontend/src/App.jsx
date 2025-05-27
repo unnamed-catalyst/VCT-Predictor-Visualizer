@@ -15,6 +15,7 @@ const getTileColor = (region) => ({
 }[region]);
 
 function App() {
+  const [loading, setLoading] = useState(false);
   const [selected, setSelected] = useState([]);
   const [prediction, setPrediction] = useState(null);
 
@@ -37,6 +38,9 @@ function App() {
       return;
     }
 
+    setLoading(true);
+    setPrediction(null); // Clear previous prediction
+
     const [teamA, teamB] = selected.map((t) => t.code);
     const url = `https://vct-predictor-visualizer.onrender.com/get_predict?teamA=${teamA}&teamB=${teamB}`;
 
@@ -47,6 +51,8 @@ function App() {
     } catch (err) {
       console.error(err);
       setPrediction({ error: "Failed to fetch prediction." });
+    } finally {
+    setLoading(false);
     }
   };
 
@@ -121,6 +127,15 @@ function App() {
           )}
         </Droppable>
       </DragDropContext>
+
+      {loading && <p>Fetching match prediction... The first run may take ~40-60s due to API inactivity</p>}
+
+      {/* {prediction && !loading && (
+        <pre style={{ marginTop: 20, backgroundColor: "#eee", padding: 10 }}>
+          {JSON.stringify(prediction, null, 2)}
+        </pre>
+      )} */}
+
 
       <div style={{ marginTop: 20, display: "flex", gap: 10 }}>
         <button onClick={handlePredict} style={{ padding: "10px 20px", fontSize: 16 }}>
