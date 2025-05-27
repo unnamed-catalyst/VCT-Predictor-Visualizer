@@ -58,7 +58,7 @@ See the original project here → [VCT Match Predictor](https://github.com/unnam
 
 ### 🔙 Backend API  
 Hosted via [Render](https://vct-predictor-visualizer.onrender.com/docs) (sleeps after 15 minutes of inactivity).  
-⏳ First request may take ~30–40s; subsequent ones are fast.
+⏳ First request may take ~40-60s; subsequent ones are fast.
 
 ### 🔮 Frontend 
 Hosted via [GitHub Pages](https://unnamed-catalyst.github.io/VCT-Predictor-Visualizer/) 
