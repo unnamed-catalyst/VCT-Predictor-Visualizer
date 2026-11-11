@@ -27,8 +27,8 @@ A full-stack application that visualizes match predictions for the **VALORANT Ch
 
 This repo builds on a previous project where I scraped and prepared real VALORANT eSports data using Selenium from [rib.gg](https://www.rib.gg/), and trained a Random Forest classifier to predict match outcomes.
 
-📌 **Teams:** Americas, EMEA, and APAC regions (Kickoff & Stage 1 only)  
-❌ **Exclusion:** VCT China teams (data not available on rib.gg)
+📌 **Teams:** Americas, EMEA, and APAC regions (VCT 2025 Kickoff through the Stage 1 playoffs, the data leading into Masters Toronto 2025; no Stage 2, Masters Toronto or Champions data)  
+❌ **Exclusion:** VCT China teams (rib.gg has no 2025 data for the China league)
 
 For full details on:
 - Dataset structure  
@@ -47,7 +47,7 @@ See the original project here → [VCT Match Predictor](https://github.com/unnam
    The backend is Dockerized and deployed independently to handle prediction requests.
 
 3. **Interactive Frontend**  
-   The React.js frontend allows users to drag and drop teams by region and submit predictions.
+   The React.js frontend lets users filter or search 36 teams by region, click or drag two into the matchup, and see each side's win probability. It works on mobile and wakes the API on page load to hide the cold start.
 
 4. **Decoupled Deployment**  
    The frontend and backend are hosted independently and communicate over RESTful API endpoints.
@@ -62,7 +62,7 @@ Hosted via [Render](https://vct-predictor-visualizer.onrender.com/docs) (sleeps 
 
 ### 🔮 Frontend 
 Hosted via [GitHub Pages](https://unnamed-catalyst.github.io/VCT-Predictor-Visualizer/) 
-Teams are sorted by region. Drag and drop teams into the prediction zone.
+Pick (or drag) two teams into the matchup and press Predict winner.
 
 ---
 
